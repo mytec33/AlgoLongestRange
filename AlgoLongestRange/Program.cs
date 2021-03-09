@@ -5,13 +5,13 @@ namespace AlgoLongestRange
 {
     class Program
     {
-        static void Main(string[] args)
-        {
+		static void Main(string[] args)
+		{
 			int[] test1 = { 1, 11, 3, 0, 15, 5, 2, 4, 10, 7, 12, 6 };
 			int[] result = LargestRange(test1);
 
 			Console.WriteLine($"Range: {result[0]}, {result[1]}");
-        }
+		}
 
 		public static int[] LargestRange(int[] array)
 		{
