@@ -5,3 +5,7 @@ Write a function that takes in an array of integers and returns an array of leng
 The first number in the output array should be the first number in the range, while the second number should be the last number in the range.
 
 You can assume that there will only be one largest range.
+
+Example:
+array = [1, 11, 3, 0, 15, 5, 2, 4, 10, 7, 12, 6]
+[0, 7]
