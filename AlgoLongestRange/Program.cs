@@ -15,7 +15,7 @@ namespace AlgoLongestRange
 
 		public static int[] LargestRange(int[] array)
 		{
-			Dictionary<int, bool> numbers = new Dictionary<int, bool>();
+			HashSet<int> numbers = new HashSet<int>();
 			int lowRange;
 			int highRange;
 			int[] range = new int[2];
@@ -27,26 +27,20 @@ namespace AlgoLongestRange
 			// against our left right expansion tests
 			foreach (int num in array)
 			{
-				if (numbers.ContainsKey(num))
-					continue;
-				numbers.Add(num, true);
+				numbers.Add(num);
 			}
 
 			foreach (int num in array)
 			{
-				// Mark that we've checked this number
-				if (numbers.ContainsKey(num))
-					numbers[num] = false;
-
 				lowRange = num;
-				while (numbers.ContainsKey(lowRange))
+				while (numbers.Contains(lowRange))
 				{
 					lowRange--;
 				}
 				lowRange++;
 
 				highRange = num;
-				while (numbers.ContainsKey(highRange))
+				while (numbers.Contains(highRange))
 				{
 					highRange++;
 				}
