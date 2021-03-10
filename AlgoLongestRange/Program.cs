@@ -16,6 +16,7 @@ namespace AlgoLongestRange
 		public static int[] LargestRange(int[] array)
 		{
 			HashSet<int> numbers = new HashSet<int>();
+			int longestLength = 1;
 			int lowRange;
 			int highRange;
 			int[] range = new int[2];
@@ -32,10 +33,13 @@ namespace AlgoLongestRange
 
 			foreach (int num in array)
 			{
+				int currentLength = 0;
+
 				lowRange = num;
 				while (numbers.Contains(lowRange))
 				{
 					lowRange--;
+					currentLength++;
 				}
 				lowRange++;
 
@@ -43,13 +47,15 @@ namespace AlgoLongestRange
 				while (numbers.Contains(highRange))
 				{
 					highRange++;
+					currentLength++;
 				}
 				highRange--;
 
-				if (((highRange - lowRange) + 1) > ((range[1] - range[0]) + 1))
+				if (currentLength > longestLength)
 				{
 					range[0] = lowRange;
 					range[1] = highRange;
+					longestLength = currentLength;
 				}
 			}
 
